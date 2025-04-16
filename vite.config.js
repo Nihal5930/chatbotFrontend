@@ -7,6 +7,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5177,
-    strictPort: true,
+    allowedHosts: ['13.127.57.5.nip.io'],
   }
 })
