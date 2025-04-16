@@ -53,7 +53,7 @@ function App() {
         setIsLoggedIn(true);
         localStorage.setItem("chatbotUser", JSON.stringify(userInfo));
 
-        await axios.post("http://localhost:8000/users", {
+        await axios.post("http://13.127.55.147:8000/users", {
           sub: userInfo.sub,
           fullName: userInfo.name,
           emailID: userInfo.email,
@@ -63,7 +63,7 @@ function App() {
           conversationHistory: [],
         });
 
-        const chats = await axios.get(`http://localhost:8000/chats/${userInfo.sub}`);
+        const chats = await axios.get(`http://13.127.55.147:8000/chats/${userInfo.sub}`);
         const loadedThreads = {};
         chats.data.forEach(chat => {
           loadedThreads[chat.chat_id] = {
@@ -110,7 +110,7 @@ function App() {
     setTypingMessage("...");
 
     try {
-      const response = await axios.post("http://localhost:8000/chat", {
+      const response = await axios.post("http://13.127.55.147:8000/chat", {
         user,
         message,
         chat_id: chatId,
@@ -179,7 +179,7 @@ function App() {
     if (!id) return;
 
     try {
-      const res = await axios.get(`http://localhost:8000/chat/${id}`);
+      const res = await axios.get(`http://13.127.55.147:8000/chat/${id}`);
 
       let messages = [];
 
